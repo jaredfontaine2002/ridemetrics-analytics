@@ -23,6 +23,10 @@ The shop in here (Summit Cycles) is made up and so is the data. I generated it m
 
 Full numbers, tables and the limitations are in reports/FINDINGS.md. I left the limitations in on purpose.
 
+## The mistake I left in the build log
+
+First version of the churn model scored AUC 1.000. Perfect. Also fake. I was measuring recency at the same end date as the churn label, so the model was basically reading the answer. Fixed version only uses data up to 30 June 2024 and asks who didn't buy in the 180 days after that. AUC dropped to 0.773 and now I believe it. There's more in docs/build-log.md, including the forecast model I tried and threw out.
+
 ## Run it
 
 ```
