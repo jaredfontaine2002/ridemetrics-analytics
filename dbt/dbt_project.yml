@@ -1,0 +1,9 @@
+name: ridemetrics
+version: '1.0'
+config-version: 2
+profile: ridemetrics
+model-paths: ['models']
+models:
+  ridemetrics:
+    staging: {materialized: view}
+    marts: {materialized: table}

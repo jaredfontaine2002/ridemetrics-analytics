@@ -1,0 +1,18 @@
+version: 2
+sources:
+  - name: raw
+    tables: [{name: orders},{name: customers},{name: sessions}]
+models:
+  - name: stg_orders
+    description: Cleaned orders
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+      - name: channel
+        tests:
+          - accepted_values: {values: ['web','mobile']}
+  - name: mart_rfm
+    description: RFM mart
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
